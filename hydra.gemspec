@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{hydra}
-  s.version = "0.19.4"
+  s.version = "0.20.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Nick Gauthier"]
-  s.date = %q{2010-07-08}
+  s.authors = ["Nick Gauthier", "J\303\270rgen Oreh\303\270j Erichsen", "Jaime Bellmyer"]
+  s.date = %q{2010-07-17}
   s.description = %q{Spread your tests over multiple machines to test your code faster.}
-  s.email = %q{nick@smartlogicsolutions.com}
+  s.email = %q{jaime@kconrails.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc",
@@ -78,28 +78,28 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/worker_test.rb"
   ]
-  s.homepage = %q{http://github.com/ngauthier/hydra}
+  s.homepage = %q{http://github.com/bellmyer/hydra}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Distributed testing toolkit}
   s.test_files = [
-    "test/pipe_test.rb",
-     "test/sync_test.rb",
-     "test/ssh_test.rb",
-     "test/fixtures/write_file_alternate_spec.rb",
-     "test/fixtures/sync_test.rb",
-     "test/fixtures/hello_world.rb",
+    "test/fixtures/assert_true.rb",
      "test/fixtures/features/step_definitions.rb",
-     "test/fixtures/assert_true.rb",
+     "test/fixtures/hello_world.rb",
      "test/fixtures/slow.rb",
+     "test/fixtures/sync_test.rb",
+     "test/fixtures/write_file.rb",
+     "test/fixtures/write_file_alternate_spec.rb",
      "test/fixtures/write_file_spec.rb",
      "test/fixtures/write_file_with_pending_spec.rb",
-     "test/fixtures/write_file.rb",
-     "test/message_test.rb",
-     "test/test_helper.rb",
      "test/master_test.rb",
+     "test/message_test.rb",
+     "test/pipe_test.rb",
      "test/runner_test.rb",
+     "test/ssh_test.rb",
+     "test/sync_test.rb",
+     "test/test_helper.rb",
      "test/worker_test.rb"
   ]
 
@@ -107,7 +107,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<shoulda>, ["= 2.10.3"])
       s.add_development_dependency(%q<rspec>, ["= 1.3.0"])
       s.add_development_dependency(%q<cucumber>, ["= 0.7.2"])
