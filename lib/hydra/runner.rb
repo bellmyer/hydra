@@ -17,8 +17,16 @@ module Hydra #:nodoc:
     # parent) to send it messages on which files to execute.
     def initialize(opts = {})
       @io = opts.fetch(:io) { raise "No IO Object" } 
-      @verbose = opts.fetch(:verbose) { false }      
+      @verbose = opts.fetch(:verbose) { false }
+      
+      @worker_id = opts.fetch(:worker_id).to_s
+      @worker_id = '' if @worker_id == '0'
+
       $stdout.sync = true
+      
+      trace 'Creating test database'
+      ENV['TEST_ENV_NUMBER'] = @worker_id
+      
       trace 'Booted. Sending Request for file'
 
       @io.write RequestFile.new

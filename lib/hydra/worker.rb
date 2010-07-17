@@ -70,11 +70,11 @@ module Hydra #:nodoc:
 
     def boot_runners(num_runners) #:nodoc:
       trace "Booting #{num_runners} Runners"
-      num_runners.times do
+      num_runners.times do |worker_id|
         pipe = Hydra::Pipe.new
         child = SafeFork.fork do
           pipe.identify_as_child
-          Hydra::Runner.new(:io => pipe, :verbose => @verbose)
+          Hydra::Runner.new(:io => pipe, :verbose => @verbose, :worker_id => worker_id)
         end
         pipe.identify_as_parent
         @runners << { :pid => child, :io => pipe, :idle => false }
