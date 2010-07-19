@@ -10,10 +10,10 @@ This allows truly multi-threaded operations because you can then give each worke
 
 And each hydra worker will use its own personal copy of the test database. The naming convention for testing with 4 workers would then be:
 
-app_test
-app_test2
-app_test3
-app_test4
+* app_test
+* app_test2
+* app_test3
+* app_test4
 
 Setting up and syncing these databases is up to the user. You may want to try using Sauron, my automated, multi-threaded testing toolkit.  Think multi-threaded, multi-database autotest.  In fact, that's why I created this fork of hydra in the first place:
 
