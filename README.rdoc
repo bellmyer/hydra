@@ -1,3 +1,26 @@
+= IMPORTANT FORK-SPECIFIC INFO
+
+This is bellmyer-hydra, a small fork of the main hydra gem. The only external difference is that each worker launched by hydra sets the HYDRA_WORKER_ID	environment variable.
+
+This allows truly multi-threaded operations because you can then give each worker its own database. For example, in your rails app's database.yml you can do this:
+
+  test:
+    adapter: mysql
+    database: app_test<%= ENV['HYDRA_WORKER_ID'] %>
+
+And each hydra worker will use its own personal copy of the test database. The naming convention for testing with 4 workers would then be:
+
+app_test
+app_test2
+app_test3
+app_test4
+
+Setting up and syncing these databases is up to the user. You may want to try using Sauron, my automated, multi-threaded testing toolkit.  Think multi-threaded, multi-database autotest.  In fact, that's why I created this fork of hydra in the first place:
+
+http://github.com/bellmyer/sauron
+http://rubygems.org/gems/sauron
+  
+
 = Hydra
 
 Spread your tests over processors and/or multiple machines to test your code faster.
