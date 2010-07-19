@@ -25,7 +25,7 @@ module Hydra #:nodoc:
       $stdout.sync = true
       
       trace 'Creating test database'
-      ENV['TEST_ENV_NUMBER'] = @worker_id
+      ENV['HYDRA_WORKER_ID'] = @worker_id
       
       trace 'Booted. Sending Request for file'
 
