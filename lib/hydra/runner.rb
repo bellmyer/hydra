@@ -19,13 +19,13 @@ module Hydra #:nodoc:
       @io = opts.fetch(:io) { raise "No IO Object" } 
       @verbose = opts.fetch(:verbose) { false }
       
-      @worker_id = opts.fetch(:worker_id).to_s
-      @worker_id = '' if @worker_id == '0'
+      @worker_id = opts.fetch(:worker_id).to_i
 
       $stdout.sync = true
       
       trace 'Creating test database'
-      ENV['HYDRA_WORKER_ID'] = @worker_id
+      ENV['HYDRA_WORKER_ID'] = (@worker_id == 0 ? '' :: @worker_id).to_s
+      ENV['TEST_ENV_NUMBER'] = (@worker_id == 0 ? '' :: @worker_id + 1).to_s
       
       trace 'Booted. Sending Request for file'
 

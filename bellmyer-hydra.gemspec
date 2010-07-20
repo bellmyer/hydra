@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{bellmyer-hydra}
-  s.version = "0.20.10"
+  s.version = "0.20.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nick Gauthier", "J\303\270rgen Oreh\303\270j Erichsen", "Jaime Bellmyer"]
-  s.date = %q{2010-07-19}
+  s.date = %q{2010-07-20}
   s.description = %q{Spread your tests over multiple machines to test your code faster.}
   s.email = %q{jaime@kconrails.com}
   s.extra_rdoc_files = [
